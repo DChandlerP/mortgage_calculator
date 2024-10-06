@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mortgage Calculator</title>
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Link to Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="calculator-container">
+    <h1>Mortgage Calculator</h1>
+    
+    <form id="mortgage-form">
+      <!-- Basic Mortgage Details -->
+      <section>
+        <h2>Loan Details</h2>
+        <div class="form-group">
+          <label for="home-price">Home Price ($):</label>
+          <input type="number" id="home-price" name="homePrice" value="300000" min="0" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="down-payment">Down Payment ($):</label>
+          <input type="number" id="down-payment" name="downPayment" value="60000" min="0" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="loan-term">Loan Term (years):</label>
+          <input type="number" id="loan-term" name="loanTerm" value="30" min="1" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="interest-rate">Interest Rate (%):</label>
+          <input type="number" id="interest-rate" name="interestRate" value="3.5" step="0.01" min="0" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="interest-type">Interest Type:</label>
+          <select id="interest-type" name="interestType">
+            <option value="fixed">Fixed Rate</option>
+            <option value="adjustable">Adjustable Rate (ARM)</option>
+          </select>
+        </div>
+      </section>
+      
+      <!-- Optional Costs -->
+      <section>
+        <h2>Additional Costs</h2>
+        <div class="form-group">
+          <label for="property-tax">Property Tax ($):</label>
+          <input type="number" id="property-tax" name="propertyTax" value="3000" min="0">
+        </div>
+        
+        <div class="form-group">
+          <label for="home-insurance">Home Insurance ($):</label>
+          <input type="number" id="home-insurance" name="homeInsurance" value="1200" min="0">
+        </div>
+        
+        <div class="form-group">
+          <label for="pmi">Private Mortgage Insurance (PMI) ($):</label>
+          <input type="number" id="pmi" name="pmi" value="0" min="0">
+        </div>
+      </section>
+      
+      <!-- Currency Selection -->
+      <section>
+        <h2>Currency</h2>
+        <div class="form-group">
+          <label for="currency">Select Currency:</label>
+          <select id="currency" name="currency">
+            <option value="USD">$ USD</option>
+            <option value="EUR">€ EUR</option>
+            <option value="GBP">£ GBP</option>
+            <option value="JPY">¥ JPY</option>
+            <!-- Add more currencies as needed -->
+          </select>
+        </div>
+      </section>
+      
+      <!-- Form Controls -->
+      <section>
+        <button type="submit" id="submit-button">Calculate</button>
+      </section>
+    </form>
+    
+    <!-- Results Display -->
+    <div class="results">
+      <h2>Results</h2>
+      <p>Monthly Payment: <span id="monthly-payment">$0.00</span></p>
+      <p>Total Interest Paid: <span id="total-interest">$0.00</span></p>
+      <p>Total Payment: <span id="total-payment">$0.00</span></p>
+    </div>
+    
+    <!-- Charts Section -->
+    <div class="charts">
+      <canvas id="payment-chart"></canvas>
+      <canvas id="balance-chart"></canvas>
+    </div>
+  </div>
+  
+  <!-- Link to External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
